@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indberetninger</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Byens Udlejning</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Tilbage til forsiden</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Oversigt </h2>
+        <p>
+            Se indberetninger fra lejere nedenfor.
+        </p>
+    </section>
+
+    <section>
+        <h2>Indberetningstabel:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Dato</th>
+                    <th>Lejers navn</th>
+                    <th>Lejers addresse</th>
+                    <th>Lejers Telefon</th>
+                    <th>Problem</th>
+                    <th>Ordnet</th>
+                </tr>
+            </thead>
+            <tbody id="renterTableBody"></tbody>
+        </table>
+    </section>
+
+    <script>
+        var rentData = [
+            { Nr: 1, date: "2/1-2024", renterName: "Peter Hansen", renterAddress: "Omvej 7, 3. th", renterTlf: "12345678", problem: "Vandhane drypper", fixed: "Ja"},
+            { Nr: 2, date: "3/1-2024", renterName: "Jens Hansen", renterAddress: "Omvej 9, 1. tv", renterTlf: "23123412", problem: "Dørklokke i uorden", fixed: "Nej"},
+            { Nr: 3, date: "3/1-2024", renterName: "Agnete Poulsen", renterAddress: "Omvej 1, st.th", renterTlf: "54321234", problem: "Vandskade", fixed: "Nej"},
+        
+        ];
+
+    
+        var tableBody = document.getElementById("renterTableBody");
+
+        // Loop gennem arrayet og opret rækker til tabellen
+        rentData.forEach(function(renter) {
+            var row = tableBody.insertRow();
+            var cellNumber = row.insertCell(0);
+            var cellName = row.insertCell(1);
+            var cellAddress = row.insertCell(2);
+            var cellTlf = row.insertCell(3);
+            var cellProblem = row.insertCell(4);
+            var cellFixed = row.insertCell(5)
+
+            cellNumber.innerHTML = renter.Nr;
+            cellName.innerHTML = renter.renterName;
+            cellAddress.innerHTML = renter.renterAddress;
+            cellTlf.innerHTML = renter.renterTlf;
+            cellProblem.innerHTML = renter.problem;
+            cellFixed.innerHTML = renter.fixed;
+        });
+    </script>
+</body>
+</html>

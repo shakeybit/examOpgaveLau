@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ny Indberedelse</title>
+</head>
+<body>
+    <h1>Indtast ny indberetning</h1>
+
+    <nav>
+        <ul>
+            <li><a href="/">Tilbage til forsiden</a></li>
+        </ul>
+    </nav>
+
+
+    <form action="/gemRegistration" method="post">
+        <label for="date">Dato:</label>
+        <input type="text" id="date" name="date" required><br>
+
+        <label for="renterName">Lejers navn:</label>
+        <input type="text" id="renterName" name="renterName" required><br>
+
+        <label for="renterAddress">Lejers Adresse:</label>
+        <input type="text" id="renterAddress" name="renterAddress"><br>
+
+        <label for="renterTlf">Lejers telefon:</label>
+        <input type="text" id="renterTlf" name="renterTlf" required><br>
+        
+        <label for="problem">Problem:</label>
+        <input type="text" id="problem" name="problem"><br>
+        
+        <label for="fixed">Ordnet:</label>
+        <input type="text" id="fixed" name="fixed"><br>
+
+
+        <input type="submit" value="Registrer indberetning">
+    </form>
+</body>
+</html>

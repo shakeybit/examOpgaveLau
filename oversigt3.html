@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indberetninger</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Byens Udlejning</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Tilbage til forsiden</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Oversigt </h2>
+        <p>
+            Se indberetninger fra lejere nedenfor.
+        </p>
+    </section>
+
+    <section>
+        <h2>Indberetningstabel:</h2>
+        <table>
+            <thead>
+              <tr>
+                <th>Nr</th>
+                <th>Dato</th>
+                <th>Lejers navn</th>
+                <th>Lejers addresse</th>
+                <th>Lejers Telefon</th>
+                <th>Problem</th>
+                <th>Ordnet</th>
+              </tr>
+          </table>
+          
+          <script>
+            var connection = new Database("registrations.db");
+          
+            var results = connection.query("SELECT * FROM registrations");
+          
+            for (var i = 0; i < results.length; i++) {
+              var data = results[i]; // henter data fra aktuelle række
+
+              var row = document.createElement("tr"); // laver ny række
+          
+              for (var k in data) {
+                console.log(i)
+                var cell = document.createElement("td");
+                cell.innerHTML = data[k];
+                row.appendChild(cell); // fylder rækker
+              }
+          
+              document.querySelector("table tbody").appendChild(row);
+            }
+          </script>
+    </section>
+
+   
+   
+</body>
+</html>
